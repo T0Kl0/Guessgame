@@ -16,8 +16,10 @@ def humanguess():
 humanguess()
 
 def computerGuess():
-    number=random.randrange(0,1000)
     bandera=False
+    minNumber=0
+    maxNumber=100
+    number=random.randrange(minNumber,maxNumber)
     
     while(bandera==False):
         print(number)
@@ -27,12 +29,15 @@ def computerGuess():
             print("Tu numero es mayor o menor al mio?")
             opc2=input("mayor / menor:").lower()
             if opc2 =="menor":
-                newNumber = random.randrange(0,number)       
+                maxNumber=number
+                newNumber = random.randrange(minNumber,maxNumber)       
                 number=newNumber     
             else:
-                newNumber = random.randrange(0,1000)
+                minNumber=number
+                newNumber = random.randrange(minNumber,maxNumber)
                 number=newNumber
         else:
             bandera=True  
+            print ("GANASTE")
 
 computerGuess()
